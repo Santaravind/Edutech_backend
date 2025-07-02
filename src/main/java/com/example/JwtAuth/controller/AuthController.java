@@ -7,13 +7,12 @@ import com.example.JwtAuth.mode.UserEntity;
 import com.example.JwtAuth.response.LoginResponse;
 import com.example.JwtAuth.service.AuthService;
 import com.example.JwtAuth.service.JwtService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -29,21 +28,12 @@ public class AuthController {
     public ResponseEntity<UserEntity> register(@RequestBody RegisteruserDto registeruserDto){
         UserEntity user = new UserEntity();
         user.setEmail(registeruserDto.getEmail()); // <- THIS IS MANDATORY
-        //user.setDOB(registeruserDto.getDOB());
-
         UserEntity registeruser=authService.signUp(registeruserDto);
         return  ResponseEntity.ok(registeruser);
 
     }
 
-//    @PostMapping("/login")
-//   // @RequestBody
-//    public ResponseEntity<?> authentication(@RequestBody LoginUserDto loginUserDto){
-//        UserEntity authenticatedUSer=authService.authentication(loginUserDto);
-//        String jwtToken=jwtService.generateToken(authenticatedUSer);
-//        LoginResponse loginResponse=new LoginResponse(jwtToken, jwtService.getExpirationTime());
-//        return ResponseEntity.ok(loginResponse);
-//    }
+
 
 
     @PostMapping( value="/login", produces = "application/json")
@@ -55,6 +45,7 @@ public class AuthController {
 
 
     @PostMapping("/verify")
+    @Operation(description = "verify your email after register")
     public  ResponseEntity<?> verifyUser(@RequestBody VerifyUserDto verifyUserDto){
         try{
             authService.verifyUser(verifyUserDto);

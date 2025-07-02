@@ -10,70 +10,19 @@ public class RegisteruserDto {
     private String firstName;
     private String middleName;
     private String lastName;
-   // private String DOB;
+
     private String fatherName;
-    private Long aadharNo;
+    private int age;
     private Long mobileNo;
     private String email;
     private  String password;
 
-
-
-
-    public String getFirstName() {
-        return firstName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-//    public String getDOB() {
-//        return DOB;
-//    }
-//
-//    public void setDOB(String DOB) {
-//        this.DOB = DOB;
-//    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public Long getAadharNo() {
-        return aadharNo;
-    }
-
-    public void setAadharNo(Long aadharNo) {
-        this.aadharNo = aadharNo;
-    }
-
-    public Long getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(Long mobileNo) {
-        this.mobileNo = mobileNo;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -84,11 +33,51 @@ public class RegisteruserDto {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public Long getMobileNo() {
+        return mobileNo;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMobileNo(Long mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

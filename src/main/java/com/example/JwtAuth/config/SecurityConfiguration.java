@@ -27,7 +27,12 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity https) throws  Exception{
         https.csrf(csrf->csrf.disable())
-                .authorizeHttpRequests(authorize->authorize.requestMatchers("/auth/**")
+                .authorizeHttpRequests(authorize->authorize.requestMatchers("/auth/**",
+                                "/users/**",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/webjars/**")
                         .permitAll()
                         .anyRequest().authenticated()
                 )

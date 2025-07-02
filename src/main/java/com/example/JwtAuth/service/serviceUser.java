@@ -19,11 +19,11 @@ public class serviceUser {
         this.userRepository=userRepository;
     }
 
-   public List<UserEntity> getAllUser(){
-        List<UserEntity> user =new ArrayList<>();
-        userRepository.findAll().forEach(user::add);
-        return  user;
-   }
+    public List<UserEntity> getAllUser() {
+        List<UserEntity> userList = new ArrayList<>();
+        userRepository.findAll().forEach(userList::add);
+        return userList;
+    }
 
 }
 

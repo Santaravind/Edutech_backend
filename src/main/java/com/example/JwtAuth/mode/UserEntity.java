@@ -1,7 +1,9 @@
 package com.example.JwtAuth.mode;
 
 import jakarta.persistence.*;
+
 import lombok.Getter;
+
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,16 +30,16 @@ public class UserEntity implements UserDetails {
     @Column(nullable = false)
     private String lastName;
 
-//    @Column(nullable = false)
-//    private String DOB;
 
     //father Name
     @Column(nullable = false)
     private String fatherName;
 
-    //User Aadhar No.
-    @Column(nullable = false,unique = true)
-    private Long aadharNo;
+//    //User Aadhar No.
+//    @Column(nullable = false,unique = true)
+//    private Long age;
+
+    private int age;
 
     //User Mobile number
     @Column(nullable = false,unique = true)
@@ -61,9 +63,6 @@ public class UserEntity implements UserDetails {
     private LocalDateTime verificationCodeExporesAt;
 
 
-//
-//    public UserEntity(String firstName, String middleName, String lastName, String fatherName, String dob, String email, Long aadharNo, Long mobileNo, String encode) {
-//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -75,14 +74,14 @@ public class UserEntity implements UserDetails {
         return "";
     }
 
-    public UserEntity(Integer id, String firstName, String middleName, String lastName, String DOB, String fatherName, Long aadharNo,Long mobileNo, String email, String password, boolean enable, String verificationCode, LocalDateTime verificationCodeExporesAt) {
+    public UserEntity(Integer id, String firstName, String middleName, String lastName, String fatherName, int age,Long mobileNo, String email, String password, boolean enable, String verificationCode, LocalDateTime verificationCodeExporesAt) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-       // this.DOB = DOB;
+
         this.fatherName = fatherName;
-        this.aadharNo = aadharNo;
+        this.age = age;
         this.mobileNo = mobileNo;
         this.email = email;
         this.password = password;
@@ -131,13 +130,6 @@ public class UserEntity implements UserDetails {
         this.lastName = lastName;
     }
 
-//    public String getDOB() {
-//        return DOB;
-//    }
-//
-//    public void setDOB(String DOB) {
-//        this.DOB = DOB;
-//    }
 
     public String getFatherName() {
         return fatherName;
@@ -147,12 +139,12 @@ public class UserEntity implements UserDetails {
         this.fatherName = fatherName;
     }
 
-    public Long getAadharNo() {
-        return aadharNo;
+    public int getAge() {
+        return age;
     }
 
-    public void setAadharNo(Long aadharNo) {
-        this.aadharNo = aadharNo;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public Long getMobileNo() {
@@ -203,14 +195,13 @@ public class UserEntity implements UserDetails {
         this.verificationCodeExporesAt = verificationCodeExporesAt;
     }
 
-    public UserEntity(String firstName, String middleName, String lastName, String fatherName, String dob, String email, Long aadharNo, Long mobileNo, String password) {
+    public UserEntity(String firstName, String middleName, String lastName, String fatherName,  String email, int age, Long mobileNo, String password) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.fatherName = fatherName;
-       // this.DOB = dob;
         this.email = email;
-        this.aadharNo = aadharNo;
+        this.age = age;
         this.mobileNo = mobileNo;
         this.password = password;
     }

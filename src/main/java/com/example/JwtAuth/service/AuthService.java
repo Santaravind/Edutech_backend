@@ -30,34 +30,16 @@ public class AuthService {
     @Autowired
     private EmailService emailService;
 
-//
-//    public UserEntity signUp(RegisteruserDto input){
-//        UserEntity user=new UserEntity(
-//                input.getFirstName(),
-//                input.getMiddleName(),
-//                input.getLastName(),
-//                input.getFatherName(),
-//                input.getDOB(),
-//                input.getEmail(),
-//                input.getAadharNo(),
-//                input.getMobileNo(),
-//                encoder.encode(input.getPassword()));
-//              user.setVerificationCode(generateVerificationCode());
-//              user.setVerificationCodeExporesAt(LocalDateTime.now().plusMinutes(15));
-//              user.setEnable(false);
-//        sendVerificationEmail(user);
-//              return repository.save(user);
-//    }
+
 
     public UserEntity signUp(RegisteruserDto input) {
-        UserEntity user = new UserEntity();
+          UserEntity user=new UserEntity();
         user.setFirstName(input.getFirstName());
         user.setMiddleName(input.getMiddleName());
         user.setLastName(input.getLastName());
         user.setFatherName(input.getFatherName());
-      //  user.setDOB(input.getDOB());
-        user.setEmail(input.getEmail()); // ✅ important
-        user.setAadharNo(input.getAadharNo());
+        user.setEmail(input.getEmail());
+        user.setAge(input.getAge());
         user.setMobileNo(input.getMobileNo());
         user.setPassword(encoder.encode(input.getPassword()));
         user.setEnable(false);
@@ -67,6 +49,7 @@ public class AuthService {
         sendVerificationEmail(user);
         return repository.save(user);
     }
+
 //public UserEntity signUp(RegisteruserDto input){
 //    UserEntity user = new UserEntity();
 //    user.setFirstName(input.getFirstName());
