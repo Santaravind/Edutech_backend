@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+@CrossOrigin(origins = {"https://www.happydigitalbharat.com", "https://happydigitalbharat.com"})
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
