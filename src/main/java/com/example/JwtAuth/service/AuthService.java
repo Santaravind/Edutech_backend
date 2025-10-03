@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
@@ -150,10 +151,9 @@ public class AuthService {
             }
 
             emailService.sendVerificationEmail(user.getEmail(), subject, htmlMessage);
-        } catch (MessagingException e) {
-            System.out.println("Email not send "+e);
-            // Handle email sending exception
-            e.printStackTrace();
+        }
+         catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     private String generateVerificationCode() {
