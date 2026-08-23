@@ -6,6 +6,7 @@ import com.example.JwtAuth.dto.VerifyUserDto;
 import com.example.JwtAuth.mode.UserEntity;
 import com.example.JwtAuth.repositery.UserRepository;
 
+import com.resend.core.exception.ResendException;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -150,10 +151,10 @@ public class AuthService {
                 throw new IllegalArgumentException("User email must not be null or empty");
             }
 
+//
             emailService.sendVerificationEmail(user.getEmail(), subject, htmlMessage);
-        }
-         catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (ResendException e) {  // ✅ Changed from MessagingException to ResendException
+            throw new RuntimeException("Failed to send verification email", e);
         }
     }
     private String generateVerificationCode() {

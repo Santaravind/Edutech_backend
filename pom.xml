@@ -93,11 +93,11 @@
 			<version>2.3.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+<!--		RESEND EMAIL-->
 		<dependency>
-			<groupId>com.sendgrid</groupId>
-			<artifactId>sendgrid-java</artifactId>
-			<version>4.10.3</version>
+			<groupId>com.resend</groupId>
+			<artifactId>resend-java</artifactId>
+			<version>2.0.0</version>
 		</dependency>
 
 		<!-- WebSocket Client (SockJS & STOMP) -->
